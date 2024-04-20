@@ -11,6 +11,7 @@
 .navbar a{
     text-decoration: none;
     color: rgb(122, 120, 120);
+    cursor: pointer;
 }
 .navbar a:hover{
     color: orangered;

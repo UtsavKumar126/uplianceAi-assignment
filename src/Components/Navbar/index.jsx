@@ -8,8 +8,8 @@ function Navbar({mobileSize,setMobileSize}) {
   const naviagte=useNavigate();
   return (
     <nav className={styles.navbar}>
-        <a>DashBoard</a>
-        <a onClick={()=>naviagte('/signUp')}>SignUp</a>
+        <Link to={'/dashboard'}>DashBoard</Link>
+        <Link to={'/signup'}>SignUp</Link>
         <button onClick={()=>setMobileSize(!mobileSize)}>
             <MenuRoundedIcon/> 
         </button>

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../Components/Navbar";
 import Counter from "../Components/Counter";
 import Form from "../Components/Form";
+import { Link } from "react-router-dom";
 
 function HomePage({mobileSize, setMobileSize}) {
   return (
@@ -9,8 +10,8 @@ function HomePage({mobileSize, setMobileSize}) {
     <Navbar mobileSize={mobileSize} setMobileSize={setMobileSize} />
       {mobileSize && (
         <div className="miniNav">
-          <a href="">DashBoard</a>
-          <a href="">Logout</a>
+          <Link to={'/dashboard'}>DashBoard</Link>
+          <Link to={'/signup'}>Sign up</Link>
         </div>
       )}
       <div className="main">

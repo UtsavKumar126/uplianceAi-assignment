@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import styles from "./styles.module.css"
 import { generateUUid } from "../../functions/generateUuid";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { app } from "../../Firebase";
 
 function Form() {
     const[formData,setFormData]=useState(null);
@@ -38,9 +40,18 @@ function Form() {
         setIsFormDirty(true)
     }
 
-    function submitForm(e){
+    async function submitForm(e){
         e.preventDefault();
-        console.log(formData);
+        const db=getFirestore(app);
+        const docRef = await addDoc(collection(db, "User"), {
+          id:formData.id,
+          name: formData.name,
+          address: formData.address,
+          email:formData.email,
+          phone:formData.phone,
+          time:new Date()
+        });
+        console.log(docRef);
         setIsFormDirty(false)
     }
   return (
