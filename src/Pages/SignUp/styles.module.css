@@ -1,0 +1,62 @@
+body{
+    background-color: none;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    margin-top: 2rem;
+    width: 40%;
+    border: 1px solid white;
+    background-color: aqua;
+    padding: 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;
+    border-radius: 1rem;
+}
+.textField{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+.textField input{
+    width: 100%;
+    padding: 0.5rem 1rem;
+}
+.button{
+    padding: 0.5rem 1rem;
+    width: 50%;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: orangered;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.button:hover{
+    scale: 1.2;
+}
+.form a{
+    text-decoration: none;
+    color: rgb(20, 20, 20);
+    cursor: pointer;
+}
+.form a:hover{
+    color: orangered;
+}
+
+@media only screen and (max-width: 430px) {
+    .form{
+        width: 100%;
+        border: none;
+        background-color: white;
+    }
+    
+}

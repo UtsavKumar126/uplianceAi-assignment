@@ -7,6 +7,12 @@
     width: 60%;
     gap: 1rem;
 }
+.textField > label{
+    color: white;
+}
+.textField:focus{
+    background-color: aqua;
+}
 .textField{
     display: flex;
     flex-direction: column;

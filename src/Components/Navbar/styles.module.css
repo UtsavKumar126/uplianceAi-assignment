@@ -1,0 +1,34 @@
+.navbar{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    padding: 1rem 2rem;
+    background-color: rgb(236, 234, 234);
+
+}
+.navbar a{
+    text-decoration: none;
+    color: rgb(122, 120, 120);
+}
+.navbar a:hover{
+    color: orangered;
+}
+.navbar  button{
+    display: none;
+}
+
+@media only screen and (max-width:430px) {
+    .navbar a{
+        display: none;
+    }
+    .navbar button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+    }
+    
+}
