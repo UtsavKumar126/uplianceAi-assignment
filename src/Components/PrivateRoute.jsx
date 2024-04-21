@@ -6,7 +6,7 @@ import { Dashboard } from '@mui/icons-material';
 
 function PrivateRoute() {
     const auth=getAuth(app);
-  if(auth.currentUser){
+  if(localStorage.getItem('id')){
     return <Outlet/>
   }
   return <Navigate to={'/signin'}/>

@@ -1,6 +1,6 @@
 import { getAuth } from "firebase/auth";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { app } from "../../Firebase";
 import { useEffect } from "react";
@@ -11,11 +11,14 @@ import { generateCount } from "../../functions/generateCount";
 import { CircularProgress } from "@mui/material";
 import { UserChart } from "../../Components/UserChart";
 import { Chart } from "chart.js/auto";
+import { bringUsers } from "../../Redux/features/BringUsers/BringUserActions";
 
 function Dashboard() {
   const users = useSelector((state) => {
     return state.bringUser;
   });
+
+  const dispatch=useDispatch()
 
   const auth = getAuth(app);
 
@@ -34,6 +37,7 @@ function Dashboard() {
 
   useEffect(() => {
     document.body.style.backgroundColor = "white";
+    dispatch(bringUsers())
   }, []);
 
   return (
