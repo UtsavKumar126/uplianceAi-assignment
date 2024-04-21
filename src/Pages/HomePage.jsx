@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import Navbar from "../Components/Navbar";
 import Counter from "../Components/Counter";
 import Form from "../Components/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import { app } from "../Firebase";
 
 function HomePage({mobileSize, setMobileSize}) {
   const auth=getAuth(app);
+  const navigate=useNavigate();
 
   function logout(){
     signOut(auth).then(() => {
@@ -28,6 +29,7 @@ function HomePage({mobileSize, setMobileSize}) {
           {
             auth.currentUser?<a onClick={logout}>Logout</a>:<Link to={'/signin'}>Login</Link>
           }
+          <a onClick={()=>navigate('/textEditor')}>TextEditor</a>
         </div>
       )}
       <div className="main">

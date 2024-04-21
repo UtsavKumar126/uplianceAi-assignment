@@ -26,6 +26,9 @@
     .main {
         align-items: flex-start;
     }
+    .jodit-react-container{
+        width: 100%;
+    }
 
     .miniNav {
         display: flex;

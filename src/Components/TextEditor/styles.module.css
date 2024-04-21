@@ -1,0 +1,12 @@
+.editor{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+}
+@media only screen and (max-width:430px) {
+    .editor{
+        width: 90%;
+    }
+}

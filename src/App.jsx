@@ -9,6 +9,7 @@ import SignUp from "./Pages/SignUp";
 import SignIn from "./Pages/Signin";
 import Dashboard from "./Pages/Dashboard";
 import PrivateRoute from "./Components/PrivateRoute";
+import TextEditor from "./Components/TextEditor";
 
 function App() {
   const [mobileSize, setMobileSize] = useState(false);
@@ -26,6 +27,7 @@ function App() {
         <Route element={<PrivateRoute/>}>
           <Route path={"/dashboard"} element={<Dashboard />} />
         </Route>
+        <Route path={'/textEditor'} element={<TextEditor/>}/>
       </Routes>
     </>
   );
