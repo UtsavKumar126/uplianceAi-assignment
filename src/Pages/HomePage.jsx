@@ -14,6 +14,7 @@ function HomePage({mobileSize, setMobileSize}) {
     signOut(auth).then(() => {
       // Sign-out successful.
       alert("logout successful");
+      localStorage.removeItem('id');
       window.location.reload(); 
     }).catch((error) => {
       // An error happened.
@@ -25,7 +26,7 @@ function HomePage({mobileSize, setMobileSize}) {
     <Navbar mobileSize={mobileSize} setMobileSize={setMobileSize} logout={logout}/>
       {mobileSize && (
         <div className="miniNav">
-          <Link to={'/dashboard'}>DashBoard</Link>
+          {localStorage.getItem('id')&&<Link to={'/dashboard'}>DashBoard</Link>}
           {
             auth.currentUser?<a onClick={logout}>Logout</a>:<Link to={'/signin'}>Login</Link>
           }

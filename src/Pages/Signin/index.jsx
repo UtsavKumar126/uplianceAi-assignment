@@ -38,7 +38,7 @@ function SignIn() {
       .then((res) => {
         navigate("/dashboard");
         dispatch(bringUsers());
-        localStorage.setItem('id',res.uid)
+        localStorage.setItem('id',res.user.uid)
       })
       .catch((error) => console.error(error));
   }

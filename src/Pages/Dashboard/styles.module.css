@@ -22,8 +22,14 @@
 .dataDiv>div{
     max-width: 450px;
 }
-
-@media only screen and (max-width:430px) {
-
-    
+.logout{
+    position: absolute;
+    padding: 0.5rem 1rem;
+    border: none;
+    color: white;
+    background-color: black;
+    border-radius: 0.5rem;
+    top: 2.3rem;
+    right: 2rem;
+    cursor: pointer;
 }

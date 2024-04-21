@@ -29,6 +29,7 @@ function SignUp() {
       .then((res) => updateProfile(auth.currentUser,{displayName:user.name})).then(()=>{
         alert('Signup Successful');
         dispatch(bringUsers())
+        localStorage.setItem('id',res.user.uid)
         navigate('/dashboard');
       })
       .catch((error) => console.log(error));
