@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import { useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  updateProfile,
+} from "firebase/auth";
 import { app } from "../../Firebase";
 import { update } from "firebase/database";
 import { useDispatch } from "react-redux";
@@ -9,7 +13,7 @@ import { bringUsers } from "../../Redux/features/BringUsers/BringUserActions";
 
 function SignUp() {
   const navigate = useNavigate();
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const [user, setUser] = useState(null);
   useEffect(() => {
     document.body.style.backgroundColor = "white";
@@ -26,11 +30,13 @@ function SignUp() {
     e.preventDefault();
     const auth = getAuth(app);
     createUserWithEmailAndPassword(auth, user.email, user.password)
-      .then((res) => updateProfile(auth.currentUser,{displayName:user.name})).then(()=>{
-        alert('Signup Successful');
-        dispatch(bringUsers())
-        localStorage.setItem('id',res.user.uid)
-        navigate('/dashboard');
+      .then((res) => {
+        updateProfile(auth.currentUser, { displayName: user.name });
+        console.log(res);
+        alert("Signup Successful");
+        dispatch(bringUsers());
+        localStorage.setItem("id", res.user.uid);
+        navigate("/dashboard");
       })
       .catch((error) => console.log(error));
   }
