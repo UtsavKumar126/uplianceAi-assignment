@@ -12,6 +12,16 @@
     justify-content: center;
     align-items: center;
 }
+.dataDiv{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+.dataDiv>div{
+    max-width: 450px;
+}
 
 @media only screen and (max-width:430px) {
 

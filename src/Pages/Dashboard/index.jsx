@@ -19,18 +19,18 @@ function Dashboard() {
 
   const auth = getAuth(app);
 
-  const chartData={
-    labels: generateLabels(users), 
+  const chartData = {
+    labels: generateLabels(users),
     datasets: [
       {
         label: "Users Gained ",
         data: generateCount(users),
-        borderColor: "black",
-        borderWidth: 2
-      }
-    ]
-
-  }
+        backgroundColor:"orangered",
+        borderColor: "white",
+        borderWidth: 1,
+      },
+    ],
+  };
 
   useEffect(() => {
     document.body.style.backgroundColor = "white";
@@ -38,21 +38,21 @@ function Dashboard() {
 
   return (
     <>
-      {users.length>0 ? (
+      {users.length > 0 ? (
         <div className={styles.main}>
           <h2>Hello {auth.currentUser.displayName} !!!</h2>
+          <h3 style={{textAlign:'center'}}>Here is Subscrided Users Data (Day-wise)</h3>
+          {users && <UserChart chartData={chartData} />}
           <h3>Here is the Users Data</h3>
-          {users.map((user, i) => (
-            <UserData userData={user} />
-          ))}
-          <h3>Here is Subscrided Users Data (Day-wise)</h3>
-          {users && (
-              <UserChart chartData={chartData}/>
-          )}
+          <div className={styles.dataDiv}>
+            {users.map((user, i) => (
+              <UserData userData={user} />
+            ))}
+          </div>
         </div>
       ) : (
         <div className={styles.loader}>
-          <CircularProgress/>
+          <CircularProgress />
         </div>
       )}
     </>
