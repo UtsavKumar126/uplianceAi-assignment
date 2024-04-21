@@ -4,9 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
 import { app } from "../../Firebase";
 import { update } from "firebase/database";
+import { useDispatch } from "react-redux";
+import { bringUsers } from "../../Redux/features/BringUsers/BringUserActions";
 
 function SignUp() {
   const navigate = useNavigate();
+  const dispatch=useDispatch();
   const [user, setUser] = useState(null);
   useEffect(() => {
     document.body.style.backgroundColor = "white";
@@ -25,6 +28,7 @@ function SignUp() {
     createUserWithEmailAndPassword(auth, user.email, user.password)
       .then((res) => updateProfile(auth.currentUser,{displayName:user.name})).then(()=>{
         alert('Signup Successful');
+        dispatch(bringUsers())
         navigate('/dashboard');
       })
       .catch((error) => console.log(error));

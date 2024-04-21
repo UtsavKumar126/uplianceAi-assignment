@@ -1,0 +1,18 @@
+.data{
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap:0.5rem;
+    background-color: rgb(251, 251, 184);
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+@media only screen and (max-width:430px) {
+   .data{
+    width: 90%;
+    padding: 1rem;
+   } 
+    
+}

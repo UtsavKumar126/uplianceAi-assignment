@@ -8,16 +8,24 @@ import HomePage from "./Pages/HomePage";
 import SignUp from "./Pages/SignUp";
 import SignIn from "./Pages/Signin";
 import Dashboard from "./Pages/Dashboard";
+import PrivateRoute from "./Components/PrivateRoute";
 
 function App() {
   const [mobileSize, setMobileSize] = useState(false);
   return (
     <>
       <Routes>
-        <Route path={"/"} element={<HomePage mobileSize={mobileSize} setMobileSize={setMobileSize}/>}/>
-        <Route path={"/signUp"} element={<SignUp/>} />
-        <Route path={'/signin'} element={<SignIn/>}/>
-        <Route path={'/dashboard'} element={<Dashboard/>}/>
+        <Route
+          path={"/"}
+          element={
+            <HomePage mobileSize={mobileSize} setMobileSize={setMobileSize} />
+          }
+        />
+        <Route path={"/signUp"} element={<SignUp />} />
+        <Route path={"/signin"} element={<SignIn />} />
+        <Route element={<PrivateRoute/>}>
+          <Route path={"/dashboard"} element={<Dashboard />} />
+        </Route>
       </Routes>
     </>
   );

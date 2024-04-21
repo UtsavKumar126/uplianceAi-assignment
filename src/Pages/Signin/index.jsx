@@ -4,10 +4,13 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { app } from '../../Firebase';
+import { useDispatch } from 'react-redux';
+import { bringUsers } from '../../Redux/features/BringUsers/BringUserActions';
 
 function SignIn() {
     const navigate=useNavigate();
-    const[user,setUser]=useState(null)
+    const[user,setUser]=useState(null);
+    const dispatch=useDispatch()
     useEffect(()=>{
         document.body.style.backgroundColor='white'
     },[])
@@ -23,7 +26,7 @@ function SignIn() {
       e.preventDefault();
 
       const auth=getAuth(app);
-      signInWithEmailAndPassword(auth,user.email,user.password).then(res=>navigate('/dashboard')).catch(error=>console.error(error))
+      signInWithEmailAndPassword(auth,user.email,user.password).then(res=>{navigate('/dashboard');dispatch(bringUsers())}).catch(error=>console.error(error))
     }
 
   return (

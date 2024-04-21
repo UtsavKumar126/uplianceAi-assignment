@@ -49,10 +49,11 @@ function Form() {
           address: formData.address,
           email:formData.email,
           phone:formData.phone,
-          time:new Date()
+          time:`${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`
         });
         console.log(docRef);
         setIsFormDirty(false)
+        setFormData(null)
     }
   return (
     <form className={styles.form} onSubmit={submitForm}>
@@ -66,7 +67,7 @@ function Form() {
       </div>
       <div className={styles.textField}>
         <label htmlFor="">Email</label>
-        <TextField required fullWidth id="outlined-basic" label="Email" name='email' variant="outlined" onChange={handleChange}/>
+        <TextField required fullWidth id="outlined-basic" label="Email" name='email' variant="outlined" onChange={handleChange} />
       </div>
       <div className={styles.textField}>
         <label htmlFor="">Phone</label>
