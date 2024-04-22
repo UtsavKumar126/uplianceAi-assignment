@@ -5,6 +5,7 @@ import styles from "./styles.module.css"
 function TextEditor() {
   const editor = useRef();
   const [content, setContent] = useState('');
+  const [show,setShow]=useState(false);
   useEffect(()=>{
     document.body.style.backgroundColor='white';
     if(localStorage.getItem('editorData')){
@@ -22,6 +23,13 @@ function TextEditor() {
             localStorage.setItem('editorData',content)
         }}
       />
+      <button className={styles.button}onClick={()=>{
+        setShow(!show)
+      }}>{show?'Hide':"Display"}</button>
+      <button className={styles.button}onClick={()=>setContent("")}>Reset</button>
+      {
+        show&&<div>{content}</div>
+      }
     </div>
   );
 }

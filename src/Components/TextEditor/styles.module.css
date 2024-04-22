@@ -3,7 +3,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin: 1rem auto;
+    gap:1rem
+}
+.editor .button{
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    background-color: rgb(29, 29, 29);
+    cursor: pointer;
 }
 @media only screen and (max-width:430px) {
     .editor{
