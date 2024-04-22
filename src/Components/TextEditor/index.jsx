@@ -26,7 +26,10 @@ function TextEditor() {
       <button className={styles.button}onClick={()=>{
         setShow(!show)
       }}>{show?'Hide':"Display"}</button>
-      <button className={styles.button}onClick={()=>setContent("")}>Reset</button>
+      <button className={styles.button}onClick={()=>{
+        setContent("");
+        localStorage.removeItem('editorData');
+      }}>Reset</button>
       {
         show&&<div>{content}</div>
       }
